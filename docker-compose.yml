@@ -1,0 +1,18 @@
+version: '3.8'  # Use Docker Compose version 3.8
+
+services:  # Define the containers (services) to run
+  webserver:  # Airflow webserver service
+    image: apache/airflow:2.7.0  # Official Airflow Docker image, version 2.7.0
+    environment:  # Environment variables for Airflow configuration
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor  # Use LocalExecutor for running tasks locally
+    volumes:  # Map local directories to container directories
+      - ./dags:/opt/airflow/dags  # Your local 'dags' folder is used for Airflow DAGs
+    ports:  # Map ports to access the Airflow webserver
+      - "8080:8080"  # Access the webserver at http://localhost:8080
+    command: ["webserver"]  # Start the Airflow webserver
+
+  scheduler:  # Airflow scheduler service
+    image: apache/airflow:2.7.0  # Same Airflow image as the webserver
+    depends_on:  # Wait for the webserver to start first
+      - webserver
+    command: ["scheduler"]  # Start the Airflow scheduler
