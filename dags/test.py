@@ -33,7 +33,7 @@ with DAG(
     'hello_airflow',
     default_args=default_args,
     description='spotify_pipeline_DAG',
-    schedule_interval=timedelta(weeks=1),  # Set to None to trigger manually or set a cron expression
+    schedule_interval='@weekly',  # Set to None to trigger manually or set a cron expression
     catchup=False,
 ) as dag:
 
@@ -44,7 +44,10 @@ with DAG(
     )
     etl_task = BashOperator(
         task_id='etl_task',
-        bash_command='python etl.py'
-    )
-
-    hello_task > etl_task  # Set the task to run
+        bash_command='python /workspaces/spotify_popularity_predicition/etl.py'
+)
+    ml_task = BashOperator(
+        task_id='ml_task',
+        bash_command='python /workspaces/spotify_popularity_predicition/ml.py'
+)
+    hello_task >> etl_task >> ml_task  # Set the task to run

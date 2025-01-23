@@ -3,20 +3,19 @@
 {
 	"name": "Existing Dockerfile",
 	"build": {
-		// Sets the run context to one level up instead of the .devcontainer folder.
 		"context": "..",
-		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
 		"dockerfile": "../dockerfile"
 	},
 	"customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-azuretools.vscode-docker",
-		"mechatroner.rainbow-csv",
-		"ms-python.python"
-      ]
-    }
-  }
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker",
+				"mechatroner.rainbow-csv",
+				"ms-python.python"
+			]
+		}
+	},
+  	"forwardPorts": ["8080:8080"]
 }
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
