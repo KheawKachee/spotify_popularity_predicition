@@ -11,9 +11,9 @@ df = spark.read.option("header", "true").option("inferSchema", "true").csv("data
                                                     #Automatically infers the data types of each column based on the contents.
 
 
-#df.printSchema()
+df.printSchema()
 #df.show(n=3, truncate=10,vertical=True)
-print(df.count())
+#print(df.count())
 
 #binning mode col
 df = df.withColumn("is_mode_major", func.when(df["mode"] == "Major", 1).when(df["mode"] == "Minor", 0))
