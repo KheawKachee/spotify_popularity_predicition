@@ -44,10 +44,10 @@ with DAG(
     )
     etl_task = BashOperator(
         task_id='etl_task',
-        bash_command='python /workspaces/spotify_popularity_predicition/etl.py'
+        bash_command='python /opt/airflow/dags/etl.py'
 )
     ml_task = BashOperator(
         task_id='ml_task',
-        bash_command='python /workspaces/spotify_popularity_predicition/ml.py'
+        bash_command='python /opt/airflow/dags/ml.py'
 )
     hello_task >> etl_task >> ml_task  # Set the task to run
