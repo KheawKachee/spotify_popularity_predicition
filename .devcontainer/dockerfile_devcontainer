@@ -1,0 +1,18 @@
+FROM python:3.8-slim
+
+# Switch to root user to install system dependencies
+USER root
+
+WORKDIR /app
+
+# Install necessary system dependencies (JDK in this case)
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    default-jdk && \
+    rm -rf /var/lib/apt/lists/*  # Clean up apt cache to reduce image size
+
+# Copy the requirements file into the container and install Python dependencies
+COPY requirements.txt /
+RUN pip install --no-cache-dir -r /requirements.txt
+
+# Copy th

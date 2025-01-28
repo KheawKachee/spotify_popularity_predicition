@@ -1,8 +1,8 @@
 {
-    "name": "Airflow Spark Development",
+    "name": "dev container",
     "build": {
-        "context": "..",
-        "dockerfile": "../dockerfile"
+        "context": ".",
+        "dockerfile": "dockerfile_devcontainer"
     },
     
     "customizations": {
@@ -11,16 +11,12 @@
                 "ms-azuretools.vscode-docker",
                 "mechatroner.rainbow-csv",
                 "ms-python.python"
-            ],
-            "settings": {
-                "python.defaultInterpreterPath": "/usr/local/bin/python",
-                "python.linting.enabled": true
-            }
+            ]
         }
-    },
+    }
 
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "pip list"
+    // "postCreateCommand": "pip list"
     
     // Comment out by default to use airflow user
     // "remoteUser": "root"

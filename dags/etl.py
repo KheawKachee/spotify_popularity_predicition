@@ -61,7 +61,7 @@ df.write.option("header", "true").mode('overwrite').csv("data/modified")
 
 for filename in os.listdir("data/modified"):
     if filename.startswith("part-") and filename.endswith(".csv"):
-        os.rename(os.path.join("data/modified", filename), "/workspaces/spotifyrec/data/modified/spotify_etl_data.csv")
+        os.rename(os.path.join("./data/modified", filename), "./data/modified/spotify_etl_data.csv")
                             #Forms the full path to the existing file.
     else:os.remove(os.path.join("data/modified", filename))
 
