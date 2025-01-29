@@ -26,9 +26,9 @@ music_dict = {
     "E": 5,
     "F": 6,"F#": 7,
     "G": 8,"G#": 9,
-    "A": 10,"A#": 11,
-    "B": 12
+    "A": 10,"A#": 11
 }
+#no B cause it not nessesary
 for key, value in music_dict.items():
     # Use `when` to check if 'key' is equal to the note, and assign the value from the dict
     df = df.withColumn(f"key_{key}", func.when(df["key"] == key, 1).otherwise(0))
@@ -42,11 +42,23 @@ bucketizer = Bucketizer(splits=[0, 5e7, 1e8, 6e8, 1e9, float('Inf')],
 df = bucketizer.setHandleInvalid('keep').transform(df)
 df = df.withColumn("popularity_score", col("popularity_score").cast("int"))
 
+#mood col
+df = df.withColumn("mood_score", col('danceability_%') * col('valence_%') * col('energy_%') * col('liveness_%'))
+
 #dealing with ,
 df = df.withColumn("in_shazam_charts", func.regexp_replace("in_shazam_charts", ",", ""))
 df = df.withColumn("in_deezer_playlists", func.regexp_replace("in_deezer_playlists", ",", ""))
 df = df.withColumn("in_shazam_charts", col("in_shazam_charts").cast("int"))
 df = df.withColumn("in_deezer_playlists", col("in_deezer_playlists").cast("int"))
+
+#YYMMDD
+df = df.withColumn(
+    "date", 
+    func.concat(func.col("released_year").cast("string"), 
+             func.lpad(func.col("released_month").cast("string"), 2, '0'), 
+             func.lpad(func.col("released_day").cast("string"), 2, '0'))
+    .cast("int")
+)
 
 #relocate cols
 rm_cols = [f"key_{i}"for i in music_dict.keys()]+['is_mode_major']
