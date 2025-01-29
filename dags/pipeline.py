@@ -37,7 +37,7 @@ with DAG(
     catchup=False,
 ) as dag:
 
-    # Create a task using PythonOperator
+    # Create a task using PythonOperator often success
     hello_task = PythonOperator(
         task_id='hello_task',
         python_callable=print_hello,
