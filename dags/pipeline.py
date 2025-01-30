@@ -3,15 +3,11 @@ from airflow.operators.python import PythonOperator
 from airflow.operators.bash import BashOperator
 from datetime import datetime,timedelta
 
-# Define the Python function to be executed
-def print_hello():
-    print("Hello, Airflow!")
-
 
 # Define the DAG
 default_args = {
     'owner': 'airflow',
-    'start_date': datetime(2025, 1, 22),  # Set your start date
+    'start_date': datetime(2025, 1, 30),  # Set your start date
     'retries': 1,
     'retry_delay': timedelta(minutes=5)
     # 'queue': 'bash_queue',
@@ -38,9 +34,9 @@ with DAG(
 ) as dag:
 
     # Create a task using PythonOperator often success
-    hello_task = PythonOperator(
+    hello_task = BashOperator(
         task_id='hello_task',
-        python_callable=print_hello,
+        bash_command='pip list'
     )
     etl_task = BashOperator(
         task_id='etl_task',

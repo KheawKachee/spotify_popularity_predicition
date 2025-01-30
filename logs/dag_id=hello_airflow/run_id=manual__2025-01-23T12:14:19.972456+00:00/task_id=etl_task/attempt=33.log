@@ -1,0 +1,208 @@
+[2025-01-30T09:04:02.502+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-30T09:04:02.514+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: hello_airflow.etl_task manual__2025-01-23T12:14:19.972456+00:00 [queued]>
+[2025-01-30T09:04:02.520+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: hello_airflow.etl_task manual__2025-01-23T12:14:19.972456+00:00 [queued]>
+[2025-01-30T09:04:02.521+0000] {taskinstance.py:2866} INFO - Starting attempt 33 of 34
+[2025-01-30T09:04:02.529+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): etl_task> on 2025-01-23 12:14:19.972456+00:00
+[2025-01-30T09:04:02.535+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'hello_***', 'etl_task', 'manual__2025-01-23T12:14:19.972456+00:00', '--job-id', '106', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpa4gzs4ds']
+[2025-01-30T09:04:02.536+0000] {standard_task_runner.py:105} INFO - Job 106: Subtask etl_task
+[2025-01-30T09:04:02.537+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=742) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-01-30T09:04:02.537+0000] {standard_task_runner.py:72} INFO - Started process 743 to run task
+[2025-01-30T09:04:02.571+0000] {task_command.py:467} INFO - Running <TaskInstance: hello_airflow.etl_task manual__2025-01-23T12:14:19.972456+00:00 [running]> on host 878723ee9d16
+[2025-01-30T09:04:02.622+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='hello_***' AIRFLOW_CTX_TASK_ID='etl_task' AIRFLOW_CTX_EXECUTION_DATE='2025-01-23T12:14:19.972456+00:00' AIRFLOW_CTX_TRY_NUMBER='33' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-23T12:14:19.972456+00:00'
+[2025-01-30T09:04:02.623+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-30T09:04:02.631+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-01-30T09:04:02.632+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/etl.py']
+[2025-01-30T09:04:02.638+0000] {subprocess.py:99} INFO - Output:
+[2025-01-30T09:04:03.499+0000] {subprocess.py:106} INFO - /opt/spark/bin/load-spark-env.sh: line 68: ps: command not found
+[2025-01-30T09:04:04.776+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-01-30T09:04:04.776+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-01-30T09:04:04.901+0000] {subprocess.py:106} INFO - 25/01/30 09:04:04 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-01-30T09:04:10.359+0000] {subprocess.py:106} INFO - 25/01/30 09:04:10 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2025-01-30T09:04:12.641+0000] {subprocess.py:106} INFO - Checking file: /opt/***/data/spotify-2023.csv
+[2025-01-30T09:04:12.642+0000] {subprocess.py:106} INFO - root
+[2025-01-30T09:04:12.642+0000] {subprocess.py:106} INFO -  |-- track_name: string (nullable = true)
+[2025-01-30T09:04:12.642+0000] {subprocess.py:106} INFO -  |-- artist(s)_name: string (nullable = true)
+[2025-01-30T09:04:12.642+0000] {subprocess.py:106} INFO -  |-- artist_count: integer (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- released_year: integer (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- released_month: integer (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- released_day: integer (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- in_spotify_playlists: integer (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- in_spotify_charts: integer (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- streams: string (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- in_apple_playlists: integer (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- in_apple_charts: integer (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- in_deezer_playlists: string (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- in_deezer_charts: integer (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- in_shazam_charts: string (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- bpm: integer (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- key: string (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- mode: string (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- danceability_%: integer (nullable = true)
+[2025-01-30T09:04:12.643+0000] {subprocess.py:106} INFO -  |-- valence_%: integer (nullable = true)
+[2025-01-30T09:04:12.644+0000] {subprocess.py:106} INFO -  |-- energy_%: integer (nullable = true)
+[2025-01-30T09:04:12.644+0000] {subprocess.py:106} INFO -  |-- acousticness_%: integer (nullable = true)
+[2025-01-30T09:04:12.644+0000] {subprocess.py:106} INFO -  |-- instrumentalness_%: integer (nullable = true)
+[2025-01-30T09:04:12.644+0000] {subprocess.py:106} INFO -  |-- liveness_%: integer (nullable = true)
+[2025-01-30T09:04:12.644+0000] {subprocess.py:106} INFO -  |-- speechiness_%: integer (nullable = true)
+[2025-01-30T09:04:12.644+0000] {subprocess.py:106} INFO - 
+[2025-01-30T09:04:12.644+0000] {subprocess.py:106} INFO - root
+[2025-01-30T09:04:12.644+0000] {subprocess.py:106} INFO -  |-- track_name: string (nullable = true)
+[2025-01-30T09:04:12.644+0000] {subprocess.py:106} INFO -  |-- artist(s)_name: string (nullable = true)
+[2025-01-30T09:04:12.644+0000] {subprocess.py:106} INFO -  |-- artist_count: integer (nullable = true)
+[2025-01-30T09:04:12.644+0000] {subprocess.py:106} INFO -  |-- released_year: integer (nullable = true)
+[2025-01-30T09:04:12.644+0000] {subprocess.py:106} INFO -  |-- released_month: integer (nullable = true)
+[2025-01-30T09:04:12.644+0000] {subprocess.py:106} INFO -  |-- released_day: integer (nullable = true)
+[2025-01-30T09:04:12.644+0000] {subprocess.py:106} INFO -  |-- in_spotify_playlists: integer (nullable = true)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- in_spotify_charts: integer (nullable = true)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- streams: integer (nullable = true)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- in_apple_playlists: integer (nullable = true)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- in_apple_charts: integer (nullable = true)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- in_deezer_playlists: integer (nullable = true)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- in_deezer_charts: integer (nullable = true)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- in_shazam_charts: integer (nullable = true)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- bpm: integer (nullable = true)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- key_C: integer (nullable = false)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- key_C#: integer (nullable = false)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- key_D: integer (nullable = false)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- key_D#: integer (nullable = false)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- key_E: integer (nullable = false)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- key_F: integer (nullable = false)
+[2025-01-30T09:04:12.645+0000] {subprocess.py:106} INFO -  |-- key_F#: integer (nullable = false)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- key_G: integer (nullable = false)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- key_G#: integer (nullable = false)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- key_A: integer (nullable = false)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- key_A#: integer (nullable = false)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- is_mode_major: integer (nullable = true)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- danceability_%: integer (nullable = true)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- valence_%: integer (nullable = true)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- energy_%: integer (nullable = true)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- acousticness_%: integer (nullable = true)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- instrumentalness_%: integer (nullable = true)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- liveness_%: integer (nullable = true)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- speechiness_%: integer (nullable = true)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- popularity_score: integer (nullable = true)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- mood_score: integer (nullable = true)
+[2025-01-30T09:04:12.646+0000] {subprocess.py:106} INFO -  |-- date: integer (nullable = true)
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO - 
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO - -RECORD 0--------------------------
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  track_name           | Seven (...
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  artist(s)_name       | Latto, ...
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  artist_count         | 2
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  released_year        | 2023
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  released_month       | 7
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  released_day         | 14
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  in_spotify_playlists | 553
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  in_spotify_charts    | 147
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  streams              | 141381703
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  in_apple_playlists   | 43
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  in_apple_charts      | 263
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  in_deezer_playlists  | 45
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  in_deezer_charts     | 10
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  in_shazam_charts     | 826
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  bpm                  | 125
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  key_C                | 0
+[2025-01-30T09:04:12.647+0000] {subprocess.py:106} INFO -  key_C#               | 0
+[2025-01-30T09:04:12.648+0000] {subprocess.py:106} INFO -  key_D                | 0
+[2025-01-30T09:04:12.648+0000] {subprocess.py:106} INFO -  key_D#               | 0
+[2025-01-30T09:04:12.648+0000] {subprocess.py:106} INFO -  key_E                | 0
+[2025-01-30T09:04:12.648+0000] {subprocess.py:106} INFO -  key_F                | 0
+[2025-01-30T09:04:12.648+0000] {subprocess.py:106} INFO -  key_F#               | 0
+[2025-01-30T09:04:12.648+0000] {subprocess.py:106} INFO -  key_G                | 0
+[2025-01-30T09:04:12.648+0000] {subprocess.py:106} INFO -  key_G#               | 0
+[2025-01-30T09:04:12.648+0000] {subprocess.py:106} INFO -  key_A                | 0
+[2025-01-30T09:04:12.648+0000] {subprocess.py:106} INFO -  key_A#               | 0
+[2025-01-30T09:04:12.648+0000] {subprocess.py:106} INFO -  is_mode_major        | 1
+[2025-01-30T09:04:12.648+0000] {subprocess.py:106} INFO -  danceability_%       | 80
+[2025-01-30T09:04:12.648+0000] {subprocess.py:106} INFO -  valence_%            | 89
+[2025-01-30T09:04:12.648+0000] {subprocess.py:106} INFO -  energy_%             | 83
+[2025-01-30T09:04:12.649+0000] {subprocess.py:106} INFO -  acousticness_%       | 31
+[2025-01-30T09:04:12.649+0000] {subprocess.py:106} INFO -  instrumentalness_%   | 0
+[2025-01-30T09:04:12.649+0000] {subprocess.py:106} INFO -  liveness_%           | 8
+[2025-01-30T09:04:12.649+0000] {subprocess.py:106} INFO -  speechiness_%        | 4
+[2025-01-30T09:04:12.649+0000] {subprocess.py:106} INFO -  popularity_score     | 2
+[2025-01-30T09:04:12.649+0000] {subprocess.py:106} INFO -  mood_score           | 4727680
+[2025-01-30T09:04:12.649+0000] {subprocess.py:106} INFO -  date                 | 20230714
+[2025-01-30T09:04:12.649+0000] {subprocess.py:106} INFO - -RECORD 1--------------------------
+[2025-01-30T09:04:12.649+0000] {subprocess.py:106} INFO -  track_name           | LALA
+[2025-01-30T09:04:12.649+0000] {subprocess.py:106} INFO -  artist(s)_name       | Myke To...
+[2025-01-30T09:04:12.649+0000] {subprocess.py:106} INFO -  artist_count         | 1
+[2025-01-30T09:04:12.649+0000] {subprocess.py:106} INFO -  released_year        | 2023
+[2025-01-30T09:04:12.649+0000] {subprocess.py:106} INFO -  released_month       | 3
+[2025-01-30T09:04:12.649+0000] {subprocess.py:106} INFO -  released_day         | 23
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  in_spotify_playlists | 1474
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  in_spotify_charts    | 48
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  streams              | 133716286
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  in_apple_playlists   | 48
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  in_apple_charts      | 126
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  in_deezer_playlists  | 58
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  in_deezer_charts     | 14
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  in_shazam_charts     | 382
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  bpm                  | 92
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  key_C                | 0
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  key_C#               | 1
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  key_D                | 0
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  key_D#               | 0
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  key_E                | 0
+[2025-01-30T09:04:12.650+0000] {subprocess.py:106} INFO -  key_F                | 0
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  key_F#               | 0
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  key_G                | 0
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  key_G#               | 0
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  key_A                | 0
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  key_A#               | 0
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  is_mode_major        | 1
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  danceability_%       | 71
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  valence_%            | 61
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  energy_%             | 74
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  acousticness_%       | 7
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  instrumentalness_%   | 0
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  liveness_%           | 10
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  speechiness_%        | 4
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  popularity_score     | 2
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  mood_score           | 3204940
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  date                 | 20230323
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO - -RECORD 2--------------------------
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  track_name           | vampire
+[2025-01-30T09:04:12.651+0000] {subprocess.py:106} INFO -  artist(s)_name       | Olivia ...
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  artist_count         | 1
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  released_year        | 2023
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  released_month       | 6
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  released_day         | 30
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  in_spotify_playlists | 1397
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  in_spotify_charts    | 113
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  streams              | 140003974
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  in_apple_playlists   | 94
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  in_apple_charts      | 207
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  in_deezer_playlists  | 91
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  in_deezer_charts     | 14
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  in_shazam_charts     | 949
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  bpm                  | 138
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  key_C                | 0
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  key_C#               | 0
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  key_D                | 0
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  key_D#               | 0
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  key_E                | 0
+[2025-01-30T09:04:12.652+0000] {subprocess.py:106} INFO -  key_F                | 1
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  key_F#               | 0
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  key_G                | 0
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  key_G#               | 0
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  key_A                | 0
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  key_A#               | 0
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  is_mode_major        | 1
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  danceability_%       | 51
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  valence_%            | 32
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  energy_%             | 53
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  acousticness_%       | 17
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  instrumentalness_%   | 0
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  liveness_%           | 31
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  speechiness_%        | 6
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  popularity_score     | 2
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  mood_score           | 2681376
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO -  date                 | 20230630
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO - only showing top 3 rows
+[2025-01-30T09:04:12.653+0000] {subprocess.py:106} INFO - 
+[2025-01-30T09:04:13.072+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-01-30T09:04:13.107+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-30T09:04:13.107+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=hello_***, task_id=etl_task, run_id=manual__2025-01-23T12:14:19.972456+00:00, execution_date=20250123T121419, start_date=20250130T090402, end_date=20250130T090413
+[2025-01-30T09:04:13.135+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-30T09:04:13.153+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-01-30T09:04:13.154+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

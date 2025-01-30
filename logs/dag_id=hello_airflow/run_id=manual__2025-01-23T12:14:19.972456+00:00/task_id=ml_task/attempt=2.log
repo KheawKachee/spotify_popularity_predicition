@@ -1,0 +1,36 @@
+[2025-01-30T09:06:45.764+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-30T09:06:45.777+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: hello_airflow.ml_task manual__2025-01-23T12:14:19.972456+00:00 [queued]>
+[2025-01-30T09:06:45.783+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: hello_airflow.ml_task manual__2025-01-23T12:14:19.972456+00:00 [queued]>
+[2025-01-30T09:06:45.783+0000] {taskinstance.py:2866} INFO - Starting attempt 2 of 3
+[2025-01-30T09:06:45.792+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): ml_task> on 2025-01-23 12:14:19.972456+00:00
+[2025-01-30T09:06:45.797+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'hello_***', 'ml_task', 'manual__2025-01-23T12:14:19.972456+00:00', '--job-id', '108', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpfgjw70h4']
+[2025-01-30T09:06:45.799+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=1115) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-01-30T09:06:45.800+0000] {standard_task_runner.py:105} INFO - Job 108: Subtask ml_task
+[2025-01-30T09:06:45.800+0000] {standard_task_runner.py:72} INFO - Started process 1116 to run task
+[2025-01-30T09:06:45.837+0000] {task_command.py:467} INFO - Running <TaskInstance: hello_airflow.ml_task manual__2025-01-23T12:14:19.972456+00:00 [running]> on host 878723ee9d16
+[2025-01-30T09:06:45.898+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='hello_***' AIRFLOW_CTX_TASK_ID='ml_task' AIRFLOW_CTX_EXECUTION_DATE='2025-01-23T12:14:19.972456+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-23T12:14:19.972456+00:00'
+[2025-01-30T09:06:45.898+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-30T09:06:45.908+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-01-30T09:06:45.908+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/ml.py']
+[2025-01-30T09:06:45.915+0000] {subprocess.py:99} INFO - Output:
+[2025-01-30T09:06:47.289+0000] {subprocess.py:106} INFO - Fitting 5 folds for each of 72 candidates, totalling 360 fits
+[2025-01-30T09:07:40.626+0000] {subprocess.py:106} INFO - Best parameters: {'model__max_depth': 20, 'model__max_features': 0.75, 'model__min_samples_leaf': 3, 'model__min_samples_split': 3, 'model__n_estimators': 400}
+[2025-01-30T09:07:40.627+0000] {subprocess.py:106} INFO - Best cross-validation score: 0.7009430384068611
+[2025-01-30T09:07:40.627+0000] {subprocess.py:106} INFO - 0.4810922859799429 in_spotify_playlists
+[2025-01-30T09:07:40.627+0000] {subprocess.py:106} INFO - 0.051317210961761686 in_apple_playlists
+[2025-01-30T09:07:40.627+0000] {subprocess.py:106} INFO - 0.1948976843985434 in_deezer_playlists
+[2025-01-30T09:07:40.627+0000] {subprocess.py:106} INFO - 0.022163220186354776 bpm
+[2025-01-30T09:07:40.627+0000] {subprocess.py:106} INFO - 0.025583897614665337 acousticness_%
+[2025-01-30T09:07:40.627+0000] {subprocess.py:106} INFO - 0.017872951678624138 liveness_%
+[2025-01-30T09:07:40.627+0000] {subprocess.py:106} INFO - 0.014909871773354027 speechiness_%
+[2025-01-30T09:07:40.628+0000] {subprocess.py:106} INFO - 0.024139089145877982 mood_score
+[2025-01-30T09:07:40.628+0000] {subprocess.py:106} INFO - 0.16802378826087572 date
+[2025-01-30T09:07:40.628+0000] {subprocess.py:106} INFO - Mean Absolute Error: 0.3728012527462959
+[2025-01-30T09:07:40.628+0000] {subprocess.py:106} INFO - Mean Squared Error: 0.27226043578398945
+[2025-01-30T09:07:40.628+0000] {subprocess.py:106} INFO - R-squared: 0.7079392985423527
+[2025-01-30T09:07:41.338+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-01-30T09:07:41.361+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-30T09:07:41.361+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=hello_***, task_id=ml_task, run_id=manual__2025-01-23T12:14:19.972456+00:00, execution_date=20250123T121419, start_date=20250130T090645, end_date=20250130T090741
+[2025-01-30T09:07:41.403+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-30T09:07:41.415+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-30T09:07:41.417+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

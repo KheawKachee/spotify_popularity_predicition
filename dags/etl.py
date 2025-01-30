@@ -4,10 +4,14 @@ from pyspark.sql.functions import col
 
 import os
 
+filepath_data= '/opt/airflow/data'
+filepath_data_modified= '/opt/airflow/data/modified'
+
+print(f"Checking file: {os.path.abspath(f'{filepath_data}/spotify-2023.csv')}")
 
 spark = SparkSession.builder.appName("spark").getOrCreate()
 
-df = spark.read.option("header", "true").option("inferSchema", "true").csv("data/spotify-2023.csv")
+df = spark.read.option("header", "true").option("inferSchema", "true").csv(f"{filepath_data}/spotify-2023.csv")
                                                     #Automatically infers the data types of each column based on the contents.
 
 
@@ -69,12 +73,12 @@ df = df.select(other_cols[:15]+rm_cols+other_cols[15:])
 df.printSchema()
 df.show(n=3, truncate=10,vertical=True)
 
-df.write.option("header", "true").mode('overwrite').csv("data/modified")
+df.write.option("header", "true").mode('overwrite').csv(filepath_data_modified)
 
-for filename in os.listdir("data/modified"):
+for filename in os.listdir(filepath_data_modified):
     if filename.startswith("part-") and filename.endswith(".csv"):
-        os.rename(os.path.join("./data/modified", filename), "./data/modified/spotify_etl_data.csv")
+        os.rename(os.path.join(filepath_data_modified, filename), f"{filepath_data_modified}/spotify_etl_data.csv")
                             #Forms the full path to the existing file.
-    else:os.remove(os.path.join("data/modified", filename))
+    else:os.remove(os.path.join(filepath_data_modified, filename))
 
 spark.stop()

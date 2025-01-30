@@ -12,7 +12,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 random_state_dict = {'temp':44,'train':44,'model':44}
 
 # Load the dataset
-df = pd.read_csv('data/modified/spotify_etl_data.csv')
+df = pd.read_csv('/opt/airflow/data/modified/spotify_etl_data.csv')
 
 use_cols = ['mood_score', 'acousticness_%', 'liveness_%', 'speechiness_%',
             'date','in_deezer_playlists', 'in_spotify_playlists', 'in_apple_playlists','bpm','popularity_score']
