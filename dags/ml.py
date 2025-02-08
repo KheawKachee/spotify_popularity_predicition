@@ -76,7 +76,7 @@ print("Best cross-validation score:", grid_search.best_score_)
 
 # Get the best model from grid search
 best_model = grid_search.best_estimator_
-best_model.fit(X_train, y_train)
+#best_model.fit(X_train, y_train) redundant
 
 for i,c in zip(best_model.named_steps['model'].feature_importances_,
                best_model.named_steps['preprocessor'].transformers_[0][2]):
